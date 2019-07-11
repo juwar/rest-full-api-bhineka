@@ -1,20 +1,24 @@
+'use strict'
 const nodemailer = require('nodemailer')
-let random=''
-function acak(){
-	
-	let b='0123456789';
-	let c=6;
-	let d=b.length;
+const conn = require('../Connection/connect')
 
-	for (let i = 0; i < c; i++) {
-		random+=b.charAt(Math.floor(Math.random()*d));
-	}
-	return random;
+let random = ''
+let email = ''
+function acak() {
+    
+    let b = '0123456789';
+    let c = 6;
+    let d = b.length;
+    
+    for (let i = 0; i < c; i++) {
+        random += b.charAt(Math.floor(Math.random() * d));
+    }
+    return random;
 }
 
-
-
 module.exports = function (req, res) {
+    let checkEmail = req.body.email
+    let sqlSelect = `select * from user where email ='${ checkEmail }'`
     acak()
     let transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -23,26 +27,45 @@ module.exports = function (req, res) {
             pass: 'testedemail123'
         }
     })
+
+    conn.query(sqlSelect, async (error, rows, results) => {
+        //get password lama dan email
+        rows.map((item) => {
+            (
+                email = item.email
+            )
+        })
+
+        if(email == checkEmail){
+            let mailOptions = {
+                from: 'bc764652ad-251e39@inbox.mailtrap.io',
+                to: `juwar@etlgr.com, ${ email }`,
+                subject: 'Reset Password',
+                text: 'Code Verification is ' + random
+            }
     
-    let mailOptions = {
-        from: 'bc764652ad-251e39@inbox.mailtrap.io',
-        to: 'juwar@etlgr.com,robaimuh@gmail.com',
-        subject: 'Reset Password',
-        text: 'Code Verification is '+random
-    }
-
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log(random)
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(random)
+                    res.send({
+                        code: random,
+                    })
+                    console.log('Email sent: ' + info.response);
+                }
+            });
+        } else if ( checkEmail == '' ){
             res.send({
-                code: random,
+                message: 'Email not be null'
             })
-            console.log('Email sent: ' + info.response);
+        } else {
+            res.send({
+                message: 'Email not found'
+            })
         }
-    });
 
+    })
 
 };
 

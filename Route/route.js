@@ -54,6 +54,6 @@ module.exports = function(apps){
     apps.post('/category', controler.postCategory)
 
     apps.get('/mail', mailerController)
-    apps.patch('/forget/:id', forgetController.forgetPassword)
+    apps.patch('/forget', forgetController.forgetPassword)
 
 }

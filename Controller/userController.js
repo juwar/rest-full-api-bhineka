@@ -39,7 +39,7 @@ exports.postUser = async (req,res) =>{
         return data
     }
 
-    let image = await getUrl()
+    let image = await getUrl() || 'null'
     let password = req.body.password
     let first_name = req.body.first_name
     let last_name = req.body.last_name
