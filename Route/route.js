@@ -35,7 +35,7 @@ module.exports = function(apps){
     apps.delete('/cart/:id', cartController.deleteCart)
     apps.patch('/cart/:id',cartController.updateCart)
 
-    apps.get('/user/:id',auth, userController.getUser)
+    apps.get('/user/:id', userController.getUser)
     apps.post('/user', upload.single('image'),userController.postUser)
 
     apps.delete('/user/:id', userController.deleteUser)
