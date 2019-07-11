@@ -56,5 +56,4 @@ module.exports = function(apps){
     apps.get('/mail', mailerController)
     apps.patch('/forget/:id', forgetController.forgetPassword)
 
-
 }
