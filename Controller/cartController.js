@@ -4,13 +4,19 @@ const response = require('../response/response')
 
 exports.getCart = (req, res) => {
     let id = req.params.id
-    let sql = `SELECT * FROM cart join product on cart.id_product = product.id_product join user on cart.id_user = user.id_user where user.id_user = ${id}`
+    let sql = `SELECT cart.id_user, amount_purchase, cart.id_product, price, product.image, id_cart,  FROM cart join product on cart.id_product = product.id_product join user on cart.id_user = user.id_user where user.id_user = ${id}`
     conn.query(sql, (error, rows) => {
         if (error) {
             console.log(error)
         } else {
+            let totalHarga = 0
+            let data = rows
+            data.map((item) => {(
+                totalHarga += (item.price * item.amount_purchase)
+            )})
             res.send({
-                data: rows
+                data: rows,
+                totalHarga : totalHarga
             })
         }
     })
