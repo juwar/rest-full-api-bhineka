@@ -14,11 +14,28 @@ exports.hello = (req, res) => {
     })
 }
 
-exports.postProduct = (req, res) => {
+exports.postProduct = async (req, res) => {
+    let path = req.file.path
+    let getUrl = async(req) =>{
+        cloudinary.config({
+            cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+            api_key: process.env.CLOUDINARY_API_KEY,
+            api_secret: process.env.CLOUDINARY_API_SECRET
+        })
+
+        let data 
+        await cloudinary.uploader.upload(path, (result) =>{ 
+            const fs = require('fs')
+            fs.unlinkSync(path) 
+            data = result.url
+        })
+        return data
+    }
+
+    let image = await getUrl() 
     let product = req.body.product
     let price = req.body.price
     let description = req.body.description
-    let image = req.body.image
     let id_user = req.body.id_user
     let id_category = req.body.id_category
 
