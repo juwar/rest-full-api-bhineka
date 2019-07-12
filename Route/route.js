@@ -12,6 +12,7 @@ module.exports = function (apps) {
     const forgetController = require('../Controller/forgetController')
     const wishlistController = require('../Controller/wishlistController')
     const mostPopuler = require('../Controller/mostPopuler')
+    const searchAll = require('../Controller/searchAll')
     const auth = require('../Middleware/verifytoken')
     const multer = require('multer')
 
@@ -50,7 +51,7 @@ module.exports = function (apps) {
 
     apps.get('/wishlist', wishlistController.getWishlist)
     apps.post('/wishlist', wishlistController.postWishlist)
-    apps.delete('/wishlist', wishlistController.deleteWishlist)
+    apps.delete('/wishlist/:id', wishlistController.deleteWishlist)
 
     apps.post('/auth', authController.postAuth)
     apps.patch('/auth/:id', authController.changeAuth)
@@ -62,6 +63,6 @@ module.exports = function (apps) {
     apps.post('/mail', mailerController)
     apps.patch('/forget', forgetController.forgetPassword)
 
-    apps.patch('/mostPopuler')
-
+    apps.patch('/mostPopuler/:id', mostPopuler)
+    apps.get('/search', searchAll)
 }

@@ -44,7 +44,7 @@ exports.postWishlist = (req, res) => {
 
 exports.deleteWishlist = () => {
     let id = req.params.id
-    let id_user = req.params.id_user
+    let id_user = req.body.id_user
     conn.query(`delete from wishlist where id_wishlist = ${id}`, (err, row) => {
         if (err) {
             console.log(err)
