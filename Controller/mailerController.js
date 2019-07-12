@@ -6,7 +6,7 @@ let random = ''
 let email = ''
 let id = ''
 function acak() {
-    
+    random = ''
     let b = '0123456789';
     let c = 6;
     let d = b.length;
@@ -14,7 +14,6 @@ function acak() {
     for (let i = 0; i < c; i++) {
         random += b.charAt(Math.floor(Math.random() * d));
     }
-    return random;
 }
 
 module.exports = function (req, res) {
