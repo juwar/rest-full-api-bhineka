@@ -4,6 +4,7 @@ const conn = require('../Connection/connect')
 
 let random = ''
 let email = ''
+let id = ''
 function acak() {
     
     let b = '0123456789';
@@ -33,6 +34,8 @@ module.exports = function (req, res) {
         rows.map((item) => {
             (
                 email = item.email
+            ),(
+                id = item.id_user
             )
         })
 
@@ -51,6 +54,7 @@ module.exports = function (req, res) {
                     console.log(random)
                     res.send({
                         code: random,
+                        id: id,
                     })
                     console.log('Email sent: ' + info.response);
                 }
