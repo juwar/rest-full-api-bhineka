@@ -1,6 +1,7 @@
 'use strict'
 const conn = require('../Connection/connect')
 const response = require('../response/response')
+const isEmpty = require('lodash.isempty')
 
 exports.getTransaction = (req, res) => {
     let id = req.query.id

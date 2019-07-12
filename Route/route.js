@@ -42,7 +42,7 @@ module.exports = function (apps) {
     apps.delete('/user/:id', userController.deleteUser)
     apps.patch('/user/:id', userController.updateUser)
 
-    apps.get('/transaction/:id', transactionController.getTransaction)
+    apps.get('/transaction', transactionController.getTransaction)
     apps.post('/transaction', transactionController.postTransaction)
     apps.delete('/transaction', transactionController.deleteTransaction)
     apps.patch('/transaction', transactionController.updateTransaction)
