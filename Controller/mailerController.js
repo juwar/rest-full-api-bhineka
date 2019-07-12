@@ -18,6 +18,8 @@ function acak() {
 
 module.exports = function (req, res) {
     let checkEmail = req.body.email
+    checkEmail = checkEmail.toLowerCase()
+    console.log(checkEmail)
     let sqlSelect = `select * from user where email ='${ checkEmail }'`
     acak()
     let transporter = nodemailer.createTransport({
