@@ -11,6 +11,7 @@ module.exports = function (apps) {
     const mailerController = require('../Controller/mailerController')
     const forgetController = require('../Controller/forgetController')
     const wishlistController = require('../Controller/wishlistController')
+    const mostPopuler = require('../Controller/mostPopuler')
     const auth = require('../Middleware/verifytoken')
     const multer = require('multer')
 
@@ -60,5 +61,7 @@ module.exports = function (apps) {
 
     apps.post('/mail', mailerController)
     apps.patch('/forget', forgetController.forgetPassword)
+
+    apps.patch('/mostPopuler')
 
 }

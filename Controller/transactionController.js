@@ -23,9 +23,9 @@ exports.getTransaction = (req, res) => {
         } else {
             let totalHarga = 0
             let data = rows
-            data.map((item) => {
+            data.map((item) => {(
                 totalHarga += item.price
-            })
+            )})
             res.send({
                 data: rows,
                 totalharga: totalHarga

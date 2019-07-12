@@ -45,11 +45,22 @@ exports.postProduct = (req, res) => {
 
 exports.getProduct = (req, res) => {
     let category = req.query.category
+    let limit = req.query.limit
     let sql = 'select * from product'
     if (isEmpty(category)) {
         sql = sql
+        if (isEmpty(limit)){
+            sql = sql
+        } else {
+            sql += `limit = ${ limit }`
+        }
     } else {
         sql += ` join category on category.id_category = product.id_category WHERE category.id_category = ${category} `
+        if (isEmpty(limit)){
+            sql = sql
+        } else {
+            sql += `limit = ${ limit }`
+        }
     }
     conn.query(sql, (error, rows) => {
         if (error) {
