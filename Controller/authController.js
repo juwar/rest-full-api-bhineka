@@ -8,24 +8,19 @@ exports.postAuth = (req, res) => {
     let email = req.body.email
     let password = req.body.password
     let verifPass = ''
-    let id
 
     let sql = `select * from user where email='${email}'`
+    const user = {
+        email: email,
+        password: password
+    }
     console.log(email + password)
     conn.query(sql, async (error, rows, results) => {
         rows.map((item) => {
             (
                 verifPass = item.password
             )
-                (
-                    id = item.id
-                )
         })
-        const user = {
-            email: email,
-            password: password,
-            id : id
-        }
         let decrypt = await bcrypt.compare(password, verifPass)
         console.log(verifPass)
         console.log(decrypt)
@@ -53,7 +48,7 @@ exports.changeAuth = (req, res) => {
     let encryptPassword = bcrypt.hashSync(changePassword, salt);
     console.log(changePassword)
     let sqlSelect = `select * from user where id_user='${id}'`
-    let sql = `update user set password='${encryptPassword}' where id_user=${id}`
+    let sql = `update user set password='${ encryptPassword }' where id_user=${ id }`
 
     conn.query(sqlSelect, async (error, rows, results) => {
         //get password lama
@@ -61,9 +56,9 @@ exports.changeAuth = (req, res) => {
             (
                 verifPass = item.password
             ),
-                (
-                    email = item.email
-                )
+            (
+                email = item.email
+            )
         })
         console.log('Melewati ke select password')
         //validasi password lama
@@ -72,12 +67,12 @@ exports.changeAuth = (req, res) => {
         //jika password terverifikasi
         if (decrypt) {
             console.log('Melewati decode password')
-            conn.query(sql, (error, rows) => {
+            conn.query(sql, (error, rows) =>{
                 if (error) {
                     console.log(error)
-                } else {
-                    console.log('Melewati update password')
-                    console.log('password : ' + encryptPassword)
+                }else{
+                console.log('Melewati update password')
+                console.log('password : ' + encryptPassword)
                     const user = {
                         email: email,
                         password: encryptPassword
