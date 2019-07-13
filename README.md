@@ -25,4 +25,5 @@ This is my repository containing a Rest Full API clone Bhineka for backend app c
 4. And the lest type in terminal or cmd `npm start` to run project API
 
 ## Note
-* The database used is MySQL DB which is already remote to the server [Remote SQL](https://github.com/juwar/simpleAppNoteRestAPI)
+* The database used is MySQL DB which is already remote to the server [Remote SQL](https://remotemysql.com/)
+* Contact me from more information [Facebook](https://facebook.com/muhammad.juwar.9)
