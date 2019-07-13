@@ -1,8 +1,7 @@
 <h1 align='center'>React Native Note App - RESTful API</h1>
 
 <p align='center'>
-  <img src='https://miro.medium.com/max/700/0*cQTv5n6xV7opBBIB' />
-  <img src='https://kreitech.io/blog/wp-content/uploads/2018/10/1_-NOQtyJAGQ1RNC3iVt_thA.png' />
+  <img src='https://smarttechies.files.wordpress.com/2015/10/node-express.png?w=605' />
   </a>
 </p>
 
