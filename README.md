@@ -1,7 +1,7 @@
 <h1 align='center'>React Native Note App - RESTful API</h1>
 
 <p align='center'>
-  <a href='https://miro.medium.com/max/700/0*cQTv5n6xV7opBBIB'>
+  <img src='https://miro.medium.com/max/700/0*cQTv5n6xV7opBBIB' />
   <img src='https://kreitech.io/blog/wp-content/uploads/2018/10/1_-NOQtyJAGQ1RNC3iVt_thA.png' />
   </a>
 </p>
