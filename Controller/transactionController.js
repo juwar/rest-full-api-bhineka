@@ -6,7 +6,7 @@ const isEmpty = require('lodash.isempty')
 exports.getTransaction = (req, res) => {
     let id = req.query.id
     let id_role = req.query.id_role
-    let sql = `SELECT * FROM transaction join product on product.id_product = transaction.id_product join user on user.id_user = transaction.id_user join payment_role on payment_role.id__role = transaction.id_role join transaction_methode on transaction.id_buy_methode = transaction_methode.id_buy_methode`
+    let sql = `SELECT product.product, transaction.date, product.image, product.price FROM transaction join product on product.id_product = transaction.id_product join user on user.id_user = transaction.id_user join payment_role on payment_role.id__role = transaction.id_role join transaction_methode on transaction.id_buy_methode = transaction_methode.id_buy_methode`
 
     if (!isEmpty(id)) {
         sql += ` where transaction.id_user = ${id}`
@@ -14,8 +14,6 @@ exports.getTransaction = (req, res) => {
             sql += ` and transaction.id_role = ${id_role}`
         }
     }
-
-    console.log(sql)
 
     conn.query(sql, (error, rows) => {
         if (error) {
