@@ -1,19 +1,22 @@
 const conn = require('../Connection/connect');
 const isEmpty = require('lodash.isempty')
 
-exports.getWishlist = (req, res) => {
+exports.getWishlist = (req, res) =>{
     let id = req.query.id
-    let sql = `select * from wishlist join user on user.id_user = wishlist.id_user join product on product.id_product = wishlist.id_product`
-    if(!isEmpty(id)){
-        sql += ` where user.id_user = ${ id }`
-        console.log(sql)
-    }
-    conn.query(sql, (err, rows) => {
+    let sql = `select id_wishlist, wishlist.id_product, wishlist.id_user, product.image, product.product, product.price  from wishlist join user on user.id_user = wishlist.id_user join product on product.id_product = wishlist.id_product where user.id_user = ${id}`
+    conn.query(sql, (err, rows) =>{
         if (err) {
             console.log(err)
-        } else {
+        }else{
+            let data = rows
+            let total = 0
+            data.map(item =>{
+                total++
+            })
+
             res.send({
-                data: rows
+                data: rows,
+                total: total
             })
         }
     })

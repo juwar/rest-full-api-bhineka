@@ -33,12 +33,25 @@ exports.getTransaction = (req, res) => {
 }
 
 exports.postTransaction = (req, res) => {
+    const dataEmpty = () => {
+        res
+        .status(400)
+        .send({
+            message: "Data can't be empty"
+        })
+    }
+
     let id_buy_methode = req.body.id_buy_methode
     let id_product = req.body.id_product
     let id_user = req.body.id_user
     let id_role = req.body.id_role
     let id_address = req.body.id_address
     let id_agent = req.body.id_address
+
+    if(!id_buy_methode || !id_product || !id_user || id_role || id_address || id_agent){
+        dataEmpty()
+        return
+    }
 
     let sql = `insert into transaction set id_buy_methode = ?, id_product = ?, id_user = ?, id_role = ?, id_agent=?, id_address=?`
 
