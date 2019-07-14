@@ -24,15 +24,15 @@ exports.getWishlist = (req, res) =>{
 
 exports.postWishlist = (req, res) => {
     let id_user = req.body.id_user
-    let id_category = req.body.id_category
+    let id_product = req.body.id_product
 
-    let sql = `insert into wishlist set id_user = ${id_user}, id_category = ${id_category}`
+    let sql = `insert into wishlist set id_user = ${id_user}, id_product = ${id_product}`
 
     conn.query(sql, (err, row) => {
         if (err) {
             console.log(err)
         } else {
-            let sql = `select * from wishlist join user on user.id_user = wishlist.id_user join product on product.id_product = wishlist.id_product where user.id_user = ${id}`
+            let sql = `select * from wishlist join user on user.id_user = wishlist.id_user join product on product.id_product = wishlist.id_product where user.id_user = ${id_user}`
             conn.query(sql, (err, rows) => {
                 if (err) {
                     console.log(err)
