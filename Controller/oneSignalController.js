@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+module.exports = () => {
          
     let sendNotification = function(data) {
         let headers = {

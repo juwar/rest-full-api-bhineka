@@ -2,6 +2,7 @@
 const conn = require('../Connection/connect')
 const response = require('../response/response')
 const isEmpty = require('lodash.isempty')
+const oneSignal = require('../Controller/oneSignalController')
 
 exports.getTransaction = (req, res) => {
     let id = req.query.id
@@ -61,6 +62,7 @@ exports.postTransaction = (req, res) => {
         if (error) {
             console.log(error)
         } else {
+            oneSignal()
             conn.query(defSql, (error, row) => {
                 if (error) {
                     console.log(error)
