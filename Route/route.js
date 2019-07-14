@@ -16,13 +16,12 @@ module.exports = function (apps) {
     const auth = require('../Middleware/verifytoken')
     const multer = require('multer')
 
-    let date = new Date()
     const storage = multer.diskStorage({
         destination: function (req, file, callback) {
             callback(null, './uploads');
         },
         filename: function (req, file, callback) {
-            callback(null, file.originalname + date);
+            callback(null, file.originalname);
         }
     });
 
