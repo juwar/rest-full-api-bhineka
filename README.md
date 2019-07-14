@@ -27,3 +27,13 @@ This is my repository containing a Rest Full API clone Bhineka for backend app c
 ## Note
 * The database used is MySQL DB which is already remote to the server [Remote SQL](https://remotemysql.com/)
 * Contact me for more information [Facebook](https://www.facebook.com/login.php?next=https%3A%2F%2Fm.facebook.com%2Fmuhammad.juwar.9&refsrc=https%3A%2F%2Fm.facebook.com%2Fmuhammad.juwar.9&_rdr)
+
+## Contributor
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/juwar"><img src="https://avatars3.githubusercontent.com/u/50343114?s=400&v=4" width="100px;" alt="Muhammad Juwarno"/><br /><sub><b>Kent C. Dodds</b></sub></a><br />
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/muhrobai"><img src="https://avatars1.githubusercontent.com/u/50520431?s=460&v=4" width="100px;" alt="Muhammad Juwarno"/><br /><sub><b>Kent C. Dodds</b></sub></a><br />
+  </tr>
+</table>
