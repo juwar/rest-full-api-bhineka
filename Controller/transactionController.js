@@ -95,7 +95,7 @@ exports.updateTransaction = (req, res) => {
     let id_user = req.body.id_user
     let id_role = req.body.id_role
 
-    if(!id_buy_methode || !id_product || !id_user || !id_role || !id || !id_agent){
+    if(!id_buy_methode || !id_product || !id_user || !id_role || !id){
         dataEmpty()
         return
     }
