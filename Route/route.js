@@ -13,6 +13,7 @@ module.exports = function (apps) {
     const wishlistController = require('../Controller/wishlistController')
     const mostPopuler = require('../Controller/mostPopuler')
     const searchAll = require('../Controller/searchAll')
+    const oneSignal = require('../Controller/oneSignalController')
     const auth = require('../Middleware/verifytoken')
     const multer = require('multer')
 
@@ -64,4 +65,5 @@ module.exports = function (apps) {
 
     apps.patch('/mostPopuler/:id', mostPopuler)
     apps.get('/search', searchAll)
+    apps.get('/signal', oneSignal)
 }
