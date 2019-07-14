@@ -41,7 +41,7 @@ module.exports = function (apps) {
     apps.get('/user/:id', userController.getUser)
     apps.post('/user', upload.single('image'), userController.postUser)
     apps.delete('/user/:id', userController.deleteUser)
-    apps.patch('/user/:id', userController.updateUser)
+    apps.patch('/user/:id', upload.single('image'), userController.updateUser)
 
     apps.get('/transaction', transactionController.getTransaction)
     apps.post('/transaction', transactionController.postTransaction)
