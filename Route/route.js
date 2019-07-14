@@ -16,12 +16,13 @@ module.exports = function (apps) {
     const auth = require('../Middleware/verifytoken')
     const multer = require('multer')
 
+    let date = new Date()
     const storage = multer.diskStorage({
         destination: function (req, file, callback) {
             callback(null, './uploads');
         },
         filename: function (req, file, callback) {
-            callback(null, file.originalname);
+            callback(null, file.originalname + date);
         }
     });
 
@@ -29,9 +30,9 @@ module.exports = function (apps) {
 
     apps.get('/', controler.hello)
     apps.get('/product', controler.getProduct)
-    apps.post('/product', upload.single('image'), controler.postImage)
+    apps.post('/product', upload.single('image'), controler.postProduct)
     apps.delete('/product/:id', controler.deleteProduct)
-    apps.patch('/product/:id', controler.updateProduct)
+    apps.patch('/product/:id', upload.single('image'), controler.updateProduct)
 
     apps.get('/cart/:id', cartController.getCart)
     apps.post('/cart', cartController.postCart)
@@ -40,7 +41,6 @@ module.exports = function (apps) {
 
     apps.get('/user/:id', userController.getUser)
     apps.post('/user', upload.single('image'), userController.postUser)
-
     apps.delete('/user/:id', userController.deleteUser)
     apps.patch('/user/:id', userController.updateUser)
 
@@ -55,7 +55,7 @@ module.exports = function (apps) {
 
     apps.post('/auth', authController.postAuth)
     apps.patch('/auth/:id', authController.changeAuth)
-    apps.post('/upload', upload.single('image'), controler.postImage)
+    // apps.post('/upload', upload.single('image'), controler.postImage)
 
     apps.get('/category', controler.getCategory)
     apps.post('/category', controler.postCategory)
