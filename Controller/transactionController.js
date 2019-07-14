@@ -58,7 +58,7 @@ exports.postTransaction = (req, res) => {
     console.log(id_address,id_agent,id_buy_methode,id_product,id_role,id_user)
     let sql = `insert into transaction set id_buy_methode = ?, id_product = ?, id_user = ?, id_role = ?, id_agent=?, id_address=?`
 
-    let defSql = `SELECT * FROM transaction join product on product.id_product = transaction.id_product join user on user.id_user = transaction.id_user join payment_role on payment_role.id__role = transaction.id_role join transaction_methode on transaction.id_buy_methode = transaction_methode.id_buy_methode join address on address.id_address = transaction.id_address order by user.id_user desc limit 1`
+    let defSql = `SELECT * FROM transaction join product on product.id_product = transaction.id_product join user on user.id_user = transaction.id_user join payment_role on payment_role.id__role = transaction.id_role join transaction_methode on transaction.id_buy_methode = transaction_methode.id_buy_methode join address on address.id_address = transaction.id_address where transaction.id_user = ${id_user} order by transaction.id_transaction desc limit 1`
 
     conn.query(sql, [id_buy_methode, id_product, id_user, id_role, id_agent, id_address], (error, rows) => {
         if (error) {
