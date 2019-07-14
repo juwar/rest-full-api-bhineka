@@ -3,9 +3,10 @@ const isEmpty = require('lodash.isempty')
 
 exports.getWishlist = (req, res) => {
     let id = req.query.id
-    let sql = `select * from wishlist join user on user.id_user = wishlist.id_wishlist join product on product.id_product = wishlist.id_product`
+    let sql = `select * from wishlist join user on user.id_user = wishlist.id_user join product on product.id_product = wishlist.id_product`
     if(!isEmpty(id)){
-        sql += `where user.id_user = ${ id }`
+        sql += ` where user.id_user = ${ id }`
+        console.log(sql)
     }
     conn.query(sql, (err, rows) => {
         if (err) {
