@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = (product, name) => {
          
     let sendNotification = function(data) {
         let headers = {
@@ -33,7 +33,7 @@ module.exports = () => {
       
       let message = { 
         app_id: "7284a78f-6851-4288-b700-2b27beffa07e",
-        contents: {"en": "Ndak isoh WA o cepettttttttt Cok :V"},
+        contents: {"en": `${product} berhasil dibeli oleh ${name}`},
         included_segments: ["Active Users"]
       };
       

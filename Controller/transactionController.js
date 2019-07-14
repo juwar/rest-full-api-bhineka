@@ -48,6 +48,8 @@ exports.postTransaction = (req, res) => {
     let id_role = req.body.id_role
     let id_address = req.body.id_address
     let id_agent = req.body.id_agent
+    let productBuy = ''
+    let nameBuy = ''
 
     if(!id_buy_methode || !id_product || !id_user || !id_role || !id_address || !id_agent){
         dataEmpty()
@@ -62,14 +64,22 @@ exports.postTransaction = (req, res) => {
         if (error) {
             console.log(error)
         } else {
-            oneSignal()
-            conn.query(defSql, (error, row) => {
+            conn.query(defSql, (error, rows) => {
+                rows.map((item) => {
+                    (
+                        productBuy = item.product
+                    ),
+                    (
+                        nameBuy = item.first_name
+                    )
+                })
                 if (error) {
                     console.log(error)
                 } else {
                     res.send({
-                        data: row
+                        data: rows
                     })
+                    oneSignal(productBuy,nameBuy)
                 }
             })
         }
