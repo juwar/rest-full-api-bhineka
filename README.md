@@ -26,12 +26,16 @@ This is my repository containing a Rest Full API clone Bhineka for backend app c
 
 ## Note
 * The database used is MySQL DB which is already remote to the server [Remote SQL](https://remotemysql.com/)
+* Link for Frontend [Frontend Clone Bhinneka](https://github.com/hrs234/MyElectro-clone-bhineka-frontend)
 * Contact me for more information [Facebook](https://www.facebook.com/login.php?next=https%3A%2F%2Fm.facebook.com%2Fmuhammad.juwar.9&refsrc=https%3A%2F%2Fm.facebook.com%2Fmuhammad.juwar.9&_rdr)
 
 ## Contributor
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/juwar"><img src="https://avatars3.githubusercontent.com/u/50343114?s=400&v=4" width="100px;" alt="Muhammad Juwarno"/><br /><sub><b>Muhammad Juwarno</b></sub></a><br />
-    <td align="center"><a href="https://github.com/muhrobai"><img src="https://avatars1.githubusercontent.com/u/50520431?s=460&v=4" width="100px;" alt="Muhamad Robai"/><br /><sub><b>Muhamad Robai</b></sub></a><br />
+    <td align="center"><a href="https://github.com/juwar"><img src="https://avatars3.githubusercontent.com/u/50343114?s=400&v=4" width="100px;" alt="Muhammad Juwarno"/><br /><sub><b>Muhammad Juwarno</b></sub></a><br /><b>Backend</b>
+    <td align="center"><a href="https://github.com/muhrobai"><img src="https://avatars1.githubusercontent.com/u/50520431?s=460&v=4" width="100px;" alt="Muhamad Robai"/><br /><sub><b>Muhamad Robai</b></sub></a><br /><b>Backend</b>
+    <td align="center"><a href="https://github.com/hrs234"><img src="https://avatars2.githubusercontent.com/u/50226393?s=460&v=4" width="100px;" alt="Haris Santoso"/><br /><sub><b>Haris Santoso</b></sub></a><br /><b>Frontend</b>
+    <td align="center"><a href="https://github.com/ilhamyoga"><img src="https://avatars3.githubusercontent.com/u/38208370?s=460&v=4" width="100px;" alt="Ilham Yoga"/><br /><sub><b>Ilham Yoga</b></sub></a><br /><b>Frontend</b>
+    <td align="center"><a href="https://github.com/kdrsm"><img src="https://avatars0.githubusercontent.com/u/52651194?s=460&v=4" width="100px;" alt="Eri Kadarisman"/><br /><sub><b>Eri Kadarisman</b></sub></a><br /><b>Frontend</b>
   </tr>
 </table>
